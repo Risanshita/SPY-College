@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" /> 
+    <link href="http://spycollege.org/admin/admin1/style.css" type="text/css"  rel="stylesheet"/>      
+    <script src="http://spycollege.org/admin/admin1/jquery.min.js" type="text/javascript"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <!--script src="http://spycollege.org/admin/admin1/script1.js" type="text/javascript"></script --> 
+     <script src="script1.js" type="text/javascript"></script> 
+   
+</head>
+<body> 
+    <div id="information-panel">
+        <i class="fa fa-times-rectangle" style="padding:5px; font-size:2.5em;color:red"></i>
+        <i class="fa fa-check-square" style="padding:5px; font-size:2.5em;color:green"></i>
+        <div id="message"> 
+            <p id="text">Usename or password are incorret !</p>
+        </div> 
+    </div>
+
+    <div class="logindiv"> 
+        <img src="logo.PNG" id="logo"/><h1>Surendra prasad yadav college</h1>
+         <div class="login1">
+             <div class="space1"></div>
+             <div class="login2">
+                 <div class="login3">
+                      <form name="myform" id="myform" action="check_login.php" method="POST" onSubmit="return checkEmail()">
+                         <h3>Username</h3>
+                         <div class="input-box">
+                             <i class="fa fa-envelope" style="padding:4px;font-size:1.6em"></i>
+                             <input type="text" id="usename" name="email" placeholder="Enter username"  required />
+                         </div>
+                         <h3>Password</h3>
+                         <div class="input-box">
+                             <i class="fa fa-key" style="padding:4px;font-size:1.6em"></i>
+                             <input type="password" id="password" name="pass" placeholder="Enter password" required/>
+                         </div>
+
+                         <div class="input-box" style="margin-top:10%;">
+                             <input type="submit" name="submit" value="LOGIN"  id="sum"  />
+                         </div>
+                         <div class="input-box" style="margin-top:3%;">
+                             <input type="reset" name="reset" value="RESET"  />
+                         </div>
+                     </form>
+                 </div>
+             </div> 
+        </div>
+    </div>
+</body>
+</html>

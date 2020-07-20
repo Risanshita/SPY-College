@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>
+</title>
+
+
+
+
+<a href="" target="_blank" style="width:130px; height:220px;     no-repeat center; display:block; top:15%;  left:0px; position: fixed; z-index:100000;"></a>
+
+	<link rel="stylesheet" type="text/css" href="contact-form.css" media="screen">
+
+<script type="text/javascript" language="javascript">
+         var isIE = document.all ? true : false;
+         var isNS = document.layers ? true : false;
+         function onlyDigits(e) {
+             var key = (isIE) ? window.event.keyCode : e.which;
+             var obj = (isIE) ? event.srcElement : e.target;
+             var isNum = (key > 47 && key < 58) ? true : false;
+
+             if (key < 32)
+                 return true;
+             return (isNum);
+         }
+    </script>
+
+
+
+ <script language="Javascript">
+<!-- Begin
+
+
+function emailCheckUser (strEMail, strName, strClass, strMobileNo, strCity) 
+{
+	
+	var checkTLD=1;
+	var knownDomsPat=/^(com|COM|net|NET|org|ORG|edu|EDU|int|INT|mil|MIL|gov|GOV|arpa|ARPA|biz|BIZ|aero|AERO|name|NAME|coop|COOP|info|INFO|pro|PRO|museum|MUSEUM|tv|TV)$/;
+	var emailPat=/^(.+)@(.+)$/;
+	var specialChars="\\(\\)><@,;:\\\\\\\"\\.\\[\\]";
+	var validChars="\[^\\s" + specialChars + "\]";
+	var quotedUser="(\"[^\"]*\")";
+	var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+	var atom=validChars + '+';
+	var word="(" + atom + "|" + quotedUser + ")";
+	var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+	var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+	var matchArray=strEMail.match(emailPat);
+	
+	
+	
+	if (matchArray==null) 
+	{
+	   alert("Email address seems incorrect (check @ and .'s)");
+	   document.FrontPage_Form1.email.focus();
+	   return document.MM_returnValue = false;
+	}
+	var user=matchArray[1];
+	var domain=matchArray[2];
+	for (i=0; i<user.length; i++) 
+	{
+		if (user.charCodeAt(i)>127) 
+		{
+			alert("Ths username contains invalid characters.");
+			document.FrontPage_Form1.email.focus();
+			return document.MM_returnValue = false;
+		}
+	}
+	for (i=0; i<domain.length; i++) 
+	{
+		if (domain.charCodeAt(i)>127) 
+		{
+			alert("Ths domain name contains invalid characters.");
+			document.FrontPage_Form1.email.focus();
+			return document.MM_returnValue = false;
+		}
+	}
+	if (user.match(userPat)==null) 
+	{
+		alert("The username doesn't seem to be valid.");
+		document.FrontPage_Form1.email.focus();
+		return document.MM_returnValue = false;
+	}
+	
+	var IPArray=domain.match(ipDomainPat);
+	if (IPArray!=null) 
+	{
+		for (var i=1;i<=4;i++) 
+		{
+			if (IPArray[i]>255) 
+			{
+				alert("Destination IP address is invalid!");
+				document.FrontPage_Form1.email.focus();
+				return document.MM_returnValue = false;
+			}
+		}
+		return true;
+	}
+	var atomPat=new RegExp("^" + atom + "$");
+	var domArr=domain.split(".");
+	var len=domArr.length;
+	for (i=0;i<len;i++) 
+	{
+		if (domArr[i].search(atomPat)==-1) 
+		{
+			alert("The domain name does not seem to be valid.");
+			document.FrontPage_Form1.email.focus();
+			return document.MM_returnValue = false;
+		}
+	}
+	if (checkTLD && domArr[domArr.length-1].length!=2 && 
+			domArr[domArr.length-1].search(knownDomsPat)==-1) 
+	{
+		alert("The address must end in a well-known domain or two letter " + "country.");
+		document.FrontPage_Form1.email.focus();
+		return document.MM_returnValue = false;
+	}
+
+	
+	if (strName=="")
+	{
+		//alert("Please enter  Name");
+		//form.NAME.focus();
+		//return document.MM_returnValue = false;
+	}
+	
+	if (strClass=="-")
+	{
+		//alert("Please enter  Class");
+		//form.CLASS.focus();
+		//return document.MM_returnValue = false;
+	}
+
+
+	if (strCity=="")
+	{
+		//alert("Please enter  city");
+		//form.CITY.focus();
+		//return document.MM_returnValue = false;
+	}
+	
+	if (strMobileNo=="")
+	{
+		//alert("Please enter  mobile number");
+		//form.MOBILENO.focus();
+		//return document.MM_returnValue = false;
+	}
+	
+	
+	return document.MM_returnValue = true;
+}
+
+//end -->
+</script>
+
+
+
+ <script language="JavaScript" type="text/javascript">
+	function FrontPage_Form1_Validator(theForm)
+	{
+		
+		if (theForm.NAME.value == "")
+		  {
+			alert("Please enter a value for the \"Full name of Applicant\" field.");
+			theForm.NAME.focus();
+			return (false);
+		  }
+		
+		  if (theForm.NAME.value.length < 3)
+		  {
+			alert("Please enter at least 3 characters in the \"Full name of Applicant\" field.");
+			theForm.NAME.focus();
+			return (false);
+		  }
+		
+		  if (theForm.NAME.value.length > 60)
+		  {
+			alert("Please enter at most 60 characters in the \"Full name of Applicant\" field.");
+			theForm.NAME.focus();
+			return (false);
+		  }
+		
+		  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,- \t\r\n\f";
+		  var checkStr = theForm.NAME.value;
+		  var allValid = true;
+		  var validGroups = true;
+		  for (i = 0;  i < checkStr.length;  i++)
+		  {
+			ch = checkStr.charAt(i);
+			for (j = 0;  j < checkOK.length;  j++)
+			  if (ch == checkOK.charAt(j))
+				break;
+			if (j == checkOK.length)
+			{
+			  allValid = false;
+			  break;
+			}
+		  }
+		  if (!allValid)
+		  {
+			alert("Please enter only letter, whitespace and \".,-\" characters in the \"Full name of Applicant\" field.");
+			theForm.NAME.focus();
+			return (false);
+		  }
+			
+		
+		 if (theForm.CITY.value == "")
+		  {
+			alert("Please enter a value for the \"City\" field.");
+			theForm.CITY.focus();
+			return (false);
+		  }
+		
+		  if (theForm.CITY.value.length < 3)
+		  {
+			alert("Please enter at least 3 characters in the \"City\" field.");
+			theForm.CITY.focus();
+			return (false);
+		  }
+		
+		  if (theForm.CITY.value.length > 35)
+		  {
+			alert("Please enter at most 35 characters in the \"City\" field.");
+			theForm.CITY.focus();
+			return (false);
+		  }
+		
+		  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789--,. \t\r\n\f";
+		  var checkStr = theForm.CITY.value;
+		  var allValid = true;
+		  var validGroups = true;
+		  for (i = 0;  i < checkStr.length;  i++)
+		  {
+			ch = checkStr.charAt(i);
+			for (j = 0;  j < checkOK.length;  j++)
+			  if (ch == checkOK.charAt(j))
+				break;
+			if (j == checkOK.length)
+			{
+			  allValid = false;
+			  break;
+			}
+		  }
+		  if (!allValid)
+		  {
+			alert("Please enter only letter, digit, whitespace and \"-,.\" characters in the \"City\" field.");
+			theForm.CITY.focus();
+			return (false);
+		  }
+		
+		
+		
+		if (theForm.CLASS.value == "-" || theForm.CLASS.value == "")
+		  {
+			alert("Please enter a value for the \"CLASS\" field.");
+			theForm.CLASS.focus();
+			return (false);
+		  }
+		  
+		
+		
+		
+		  
+		  
+		 if (theForm.MOBILENO.value == "")
+		  {
+			alert("Please enter a value for the \"Mobile No\" field.");
+			theForm.MOBILENO.focus();
+			return (false);
+		  }
+		
+		  if (theForm.MOBILENO.value.length < 10)
+		  {
+			alert("Please enter at least 10 characters in the \"Mobile No\" field.");
+			theForm.MOBILENO.focus();
+			return (false);
+		  }
+		
+		  if (theForm.MOBILENO.value.length > 10)
+		  {
+			alert("Please enter at most 10 characters in the \"Mobile No\" field.");
+			theForm.MOBILENO.focus();
+			return (false);
+		  }
+
+		  var checkOK = "0123456789-";
+		  var checkStr = theForm.MOBILENO.value;
+		  var allValid = true;
+		  var validGroups = true;
+		  var decPoints = 0;
+		  var allNum = "";
+		  for (i = 0;  i < checkStr.length;  i++)
+		  {
+			ch = checkStr.charAt(i);
+			for (j = 0;  j < checkOK.length;  j++)
+			  if (ch == checkOK.charAt(j))
+				break;
+			if (j == checkOK.length)
+			{
+			  allValid = false;
+			  break;
+			}
+			allNum += ch;
+		  }
+		  if (!allValid)
+		  {
+			alert("Please enter only digit characters in the \"Mobile No\" field.");
+			theForm.MOBILENO.focus();
+			return (false);
+		  }
+		  
+		  
+		  
+		  if (theForm.CALLTIME.value == "-" || theForm.CALLTIME.value == "")
+		  {
+			alert("Please enter a value for the \"Time\" field.");
+			theForm.CALLTIME.focus();
+			return (false);
+		  }
+		  
+		  
+		  return (true);	
+
+	}
+	</script>
+   
+ <script type="text/javascript">
+ $(document).ready(function(){
+  /*********modelpopup******/
+ setInterval("$.fn.slideshow()",4000);
+ 
+  $('.close').click(function() {
+        $('.overlay, .modal').fadeOut('slow');
+    });
+ });
+</script>
+
+
+
+
+
+
+<div id="slideit">
+		<!-- Open/close buttons -->
+  <input id="open-item" name="forms" type="radio">
+  <input id="close-item" name="forms" type="radio" checked="checked">
+		<!-- Open label -->
+  <label for="open-item" class="open">Request for call back</label>
+		<section>
+			<!-- Close label -->
+			<label for="close-item" class="close">×</label>
+			<!-- Heading -->
+			<span class="title">Request for call back</span>
+			<!-- Info text and form elements -->
+			<div class="wrap">
+				<div>
+<div class="form-main">
+        <div class="form-cover">
+       	  <div class="smart-green">
+            	
+                <form class="niceform" method="POST" action="" onsubmit="return FrontPage_Form1_Validator(this)" language="JavaScript" name="FrontPage_Form1">
+
+
+				 <input type="hidden" name="STUDYCNAME" id="STUDYCNAME" value="DLP">
+                 
+                 <div class="field" style="margin-top:0;">
+            	<label>Your Name</label>
+                <input type="text" name="NAME" id="NAME" size="60" maxlength="60">
+                </div>
+                <div class="field">
+                <label>Interested In</label>
+                
+                
+               <select size="1" name="CLASS" id="CLASS">
+                <option value="-" selected="">[PLEASE SELECT ONE]</option>
+                <option value="VI">VI
+                </option>
+                <option value="VII">VII
+                </option>
+                <option value="VIII">VIII</option>
+                <option value="IX">IX</option>
+                <option value="X">X</option>
+                <option value="NTSE">NTSE</option>
+                <option value="Jee Main+Advanced">JEE (Main+Advanced)</option>
+                <option value="JEE Main">JEE Main</option>
+                <option value="Pre-Medical">Pr-Medical</option>
+                </select>
+</div>
+
+                <div class="field">
+                <label>Email</label>
+                  <input type="text" name="email" id="email" size="50">
+                  </div>
+                  <div class="field">
+                  <label>Mobile No.</label>
+                  <input type="text" name="MOBILENO" id="MOBILENO" size="10" onkeypress="return onlyDigits(event)" maxlength="10">
+                     </div>
+                     <div class="field">
+                                    <label>City</label>
+                 <input type="text" name="CITY" id="CITY" size="60" class="inputFieldIE" maxlength="60">
+                 </div>
+                 
+                 
+                 
+                 
+                   <div class="field">
+                <label>Preferred Time of call back</label>
+                
+                
+               <select size="1" name="CALLTIME" id="CALLTIME">
+                <option value="-" selected="">[PLEASE SELECT ONE]</option>
+                <option value="10:00 - 11:00">10:00 - 11:00 </option>
+                <option value="11:00 - 12:00">11:00 - 12:00        </option>
+                <option value="12:00 - 13:00">12:00 - 13:00</option>
+                 <option value="13:00 - 14:00">13:00 - 14:00</option>
+                <option value="14:00 - 15:00">14:00 - 15:00</option>
+                <option value="15:00 - 16:00">15:00 - 16:00</option>
+                <option value="16:00 - 17:00">16:00 - 17:00</option>
+                 <option value="17:00 - 18:00">17:00 - 18:00</option>
+                <option value="18:00 - 19:00">18:00 - 19:00</option>
+                <option value="19:00 - 20:00">19:00 - 20:00</option>
+                </select>
+</div>
+
+	<div class="field">
+    <input type="submit" class="button" value="Submit" onclick="emailCheckUser(email.value, NAME.value, CLASS.value, MOBILENO.value,CITY.value); return document.MM_returnValue;" style="color:#FFF;">
+    </div>
+           </form>
+            </div>
+        </div>
+    </div>
+</div>
+			</div>
+		</section>
+</div>  
+      
+     
+
+ 
+
+</body></html>

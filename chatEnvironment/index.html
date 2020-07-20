@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="node_modules/socket.io/socket.io.js"></script>
+    
+    <script src="app.js" ></script>
+        <title>Chat with imhere</title>
+    </head>
+<body>
+    <div id="chat" style="height:200px;"></div>
+    <input size="50" id="message" type="text" />
+    <button onclick="sendMessage()" >Send</button>    
+     <script>       
+         var socket = io.connect("http://spycollege.org");
+             var message = $("#message");
+             var chat = $("#chat");
+             socket.on("new message", function (data) {
+                 chat.append(data + "<br />");
+             });
+         function sendMessage() {
+             socket.emit("send message", message.val());
+             message.val("");
+         }
+     </script>
+</body>
+</html>

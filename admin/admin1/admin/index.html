@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="style.css" rel="stylesheet" type="text/css" /><script src="jquery.min.js" type="text/javascript"></script><script src="script.js" type="text/javascript"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="popup.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="loadList()" onresize="setPos()">
+<div id="information-panel">
+<div id="message">
+<p id="text">Usename or password are incorret !</p>
+</div>
+</div>
+
+<div class="logindiv"><img id="logo" src="logo.PNG" />
+<h1>Surendra prasad yadav college</h1>
+
+<div id="menu"><button class="btn" onclick="homeGo()">Home</button><button class="btn" onclick="showPopup('add')">Add notice</button><button class="btn" onclick="showPopup('image')">Image notice</button><button class="btn" onclick="loadList()">Refresh</button><button class="btn" onclick="showPopup('update')">Update Notice</button><button class="btn" onclick="showPopup('delete')">Delete Notice</button><button class="btn" onclick="logout()">Logout</button></div>
+
+<div class="login1">
+<h2>Notice List</h2>
+
+<div id="login2"></div>
+</div>
+</div>
+
+<div id="popup-box">
+<div id="popup">
+<div id="heading"><span id="close">X</span></div>
+
+<div id="popup-body"></div>
+</div>
+</div>
+</body>
+</html>

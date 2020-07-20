@@ -1,0 +1,296 @@
+@charset "utf-8";
+/* CSS Document */
+
+.con
+{
+	height:auto;
+	width:auto;
+	background:#FFF;
+	color:#000;
+	float:right;
+	
+	
+}
+.title
+{
+	height:auto;
+	width:100%;
+	background:#FFF;
+	color:#000;
+}
+.menu
+{
+	 height:100px;
+	 width:auto;
+	 background:#00254E;
+	 color:#000;
+	
+	
+}
+.body
+{
+  width:1200px;
+  height:auto;
+  background:#FFF;
+  color:#000;
+  border:1px solid #CCCCCC;
+  	
+	
+}
+.h2
+{ 
+   height:50px;
+   width:1200px;
+   background:#00254E;
+   color:#FFF;
+   }
+   
+ .h2 ul
+ {
+    list-style:none;
+	margin:0px;
+	padding:0px;
+	float-left;
+ }
+.h2 ul li 
+
+{
+   float:left;   
+   background:#00254E;
+   width:100px;
+   height:30px;
+   line-height:30px;
+   position:relative;
+   float-left;
+   margin-top:8px;
+   margin-left:15px;
+   text-decoration:none;
+   color:#FFF;
+  
+   cursor:pointer;
+   
+   }
+.h2 ul li ul li a
+{
+    text-decoration:none;
+     color:#FFF;
+}
+.h2 ul li ul li
+{
+  background:#999;
+  opacity:50px;
+	
+  width:150px;
+  margin:0px auto;
+  padding:0px;
+  margin-top:2px;
+  
+
+}
+.h2 ul li ul
+{
+position:absolute;
+ visibility:hidden;
+ 
+}
+.h2 ul li:hover
+{
+  background:#00254E;
+  
+}
+.h2 ul li:hover ul
+{
+   visibility:visible;
+   background:#161616;
+   z-index:1;
+   -webkit-transition:all 1s;
+ 
+}
+.text
+{
+	height:560px;
+	width:834px;
+	background:#FFF;
+	float:left;
+	
+	
+}
+ .h6
+  {
+     height:280px;
+	 width:360px;
+	 background:#FFFFFF;
+	 color:#000000;
+	 border-radius:0px;
+	 float:right;
+	 border-left:1px solid #CCC;
+	 
+	 
+	 }
+	 .h7
+	 { height:50px;
+	 width:360px;
+	 background:#00254E;
+	 color:#000000;
+	 margin-top:15px;
+	 border-radius:0px;
+	 
+	 
+	 }
+	 .fn
+	 {
+	 height:300px;
+	 width:1200px;
+	 background:#999;
+	 color:#000;
+	 margin-top:50px;
+	 border-top:1px solid #CCC;
+	 }
+	 .fn1
+	 {
+		 height:300px;
+		 width:300px;
+		 background:#FFF;
+		 color:#666;
+		 float:left;
+	 }
+		 
+		 .h12
+		 {
+			 height:560px;
+			 width:370px;
+			 background:#FFF;
+			 float:right;
+		 }
+		 .ft
+		 {
+			 height:60px;
+		    width:1200px;
+		    background:#00254E;
+		 }
+		 .ncc
+		 {
+			 height:340px;
+			 width:400px;
+			 background:#FFF;
+		 }
+		  .cnt
+		 {
+			 height:200px;
+			 width:260px;
+			 background:#FFF;
+			 margin-left:200px;
+			 
+		 }
+		 .pr
+		 {
+			 height:200px;
+			 width:200px;
+			 background:#FFF;
+		 }
+		 .in_pr
+		 {
+			 height:20px;
+			 width:150px;
+			 background:#CCC;
+		 }
+		 .sin_mail
+		 {
+			 height:250px;
+			 width:200px;
+			 background:#FFF;
+			 float:right;
+		 }
+		 .sig_pr
+		 {
+			 height:50px;
+			 width:200px;
+			 background:#999;
+			 float:right;
+		 }
+		 .mail_pic
+		 {
+			 height:100px;
+			 width:200px;
+			 background:#FFF;
+			 float:right;
+		 }
+		 
+		 .mis
+		 {
+			 height:40px;
+			 width:250px;
+			 background:#00254E;
+			 
+		 }
+		  .mtab
+		 {
+			 height:250px;
+			 width:280px;
+			 background:#FFF;
+		 }
+		 .tab
+		 {
+			 height:240px;
+			 width:250px;
+			 color:#000;
+			 background:#666;
+			 float:left;
+			 
+		 }
+		 .intab
+		 {
+			 height:45px;
+			 width:250px;
+			 color:#990000;
+			 background:#D9D9D9;
+			 border:2px solid #999;
+		 }
+		 .intab:hover
+		 {
+			 background:#00254E;
+			 color:#FFF;
+		 }
+		 .ia
+		 {
+			 height:40px;
+			 width:300px;
+			 color:#cccc33;
+			 background:#00254E;
+		 }
+		 .dept
+		 {
+			 
+       height:50px;
+	 width:360px;
+	 background:#00254E;
+	 color:#000000;
+	 margin-top:15px;
+	 border-radius:0px;
+		 }
+		 .ug
+		 {
+			 height:40px;
+			 width:250px;
+			 background:#00254E;
+			 box-shadow:10px 10px 10px #666666;
+		 }
+		 .ex
+		 {
+			 height:500px;
+			 width:800px;
+			 background:#fff;
+			 
+			 
+		 }
+		 .ex_title
+		 {
+			 height:80px;
+			 width:800px;
+			 background:#fff;
+			 
+			 
+		 }
+		 
+		 
+		 

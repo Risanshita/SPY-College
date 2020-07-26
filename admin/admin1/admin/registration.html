@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="popup.css" rel="stylesheet" type="text/css" />
   </head>
-  <body onload="loadList()" onresize="setPos()">
+  <body onload="loadRegistration()" onresize="setPos()">
     <div id="information-panel">
       <div id="message">
         <p id="text">Usename or password are incorret !</p>
@@ -30,9 +30,7 @@
         <button class="btn" onclick="homeGo()">Home</button
         ><button class="btn" onclick="showPopup('add')">Add notice</button
         ><button class="btn" onclick="showPopup('image')">Image notice</button
-        ><button class="btn" onclick="loadList()">Refresh</button
-        ><button class="btn" onclick="showPopup('update')">Update Notice</button
-        ><button class="btn" onclick="showPopup('delete')">Delete Notice</button
+        ><button class="btn" onclick="loadRegistration()">Refresh</button
         ><button
           class="btn"
           onclick="redirect('http://spycollege.org/admin/admin1/admin/index.html')"
@@ -47,17 +45,9 @@
       </div>
 
       <div class="login1">
-        <h2>Notice List</h2>
+        <h2>Registrations</h2>
 
-        <div id="login2"></div>
-      </div>
-    </div>
-
-    <div id="popup-box">
-      <div id="popup">
-        <div id="heading"><span id="close">X</span></div>
-
-        <div id="popup-body"></div>
+        <div id="registration"></div>
       </div>
     </div>
   </body>

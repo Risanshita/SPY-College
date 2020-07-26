@@ -131,8 +131,8 @@
 	//	$username = "root";
 	//	$password = "";
     //extract($_POST);
-    $username1111=$_REQUEST["email"];
-    $pass1111=$_REQUEST["pass"];
+    // $username1111=$_REQUEST["email"];
+    // $pass1111=$_REQUEST["pass"];
 	$count=0;
 	$res="";
   

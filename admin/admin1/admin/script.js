@@ -1,7 +1,7 @@
 var work = "";
 
 function showPopup(f) {
-checkSession();
+    checkSession();
     //Add notice to the load(1000 characters max): *
     work = f;
     $("#message-box").val("");
@@ -10,7 +10,7 @@ checkSession();
     $("#message-box").removeAttr("disabled");
     $("#popup-body").html('<div id="text_notice"> <p id="work-message"></p><div id="update-popup"><select id="time-list" onmouseup="loadSelectNotice();" onkeypress="loadSelectNotice();"></select></div><textarea maxlength="100" id="message-box"></textarea><div id="footer"><button id="add-msg-button" onclick="doWork();">Submit</button><span>|</span><a id="cancel" href="#cancel">Cancel</a><span id="max-alert">Maximum 1000 characters allowed</span></div></div>');
     if (f == 'add') {
-        $("#message-box").fadeIn(); 
+        $("#message-box").fadeIn();
         $("#popup-box").fadeIn(250);
         $("#work-message").text("Add notice to the load(1000 characters max): *");
         $("#work-heading").text("Add notice");
@@ -62,8 +62,8 @@ $(document).ready(function () {
 });
 function setPos() {
     var x = window.innerWidth;
-    var y = window.innerHeight;  
-    
+    var y = window.innerHeight;
+
     if (x / 2 > 200) {
         x = (x / 2.5) - 150
     }
@@ -93,50 +93,48 @@ $(document).ready(function () {
     });
 });
 
- 
+
 
 /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
 
- 
+
 $(document).ready(function () {
-    $("#information-panel").click(function () { 
+    $("#information-panel").click(function () {
         $("#information-panel").fadeOut(1000);
     });
-}); 
+});
 function msgingooff() {
     $("#information-panel").fadeOut(3000);
-} 
+}
 
-function logout() { 
+function logout() {
     window.open("logout.php", "_self");
 }
 
-function checkSession(){
-//debugger;
-if (window.XMLHttpRequest) { 
-            xmlhttp = new XMLHttpRequest();
-        } else { 
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        } 
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                x = this.responseText; 
-                if (x == "false")
-                    window.open("http://spycollege.org/admin/admin1/index.html","_self");
-            }
-        };
-        xmlhttp.open("GET", "loginstatus.php", false);
-        xmlhttp.send(); 
+function checkSession() {
+    //debugger;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            x = this.responseText;
+            if (x == "false")
+                window.open("http://spycollege.org/admin/admin1/index.html", "_self");
+        }
+    };
+    xmlhttp.open("GET", "loginstatus.php", false);
+    xmlhttp.send();
 
 }
- 
 
+function loadRegistration() {
 
-function loadList()
-{
- checkSession();
+    checkSession();
     var x;
     //debugger; 
     if (window.XMLHttpRequest) {
@@ -145,45 +143,72 @@ function loadList()
     } else {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    } 
-    xmlhttp.onreadystatechange = function() {
+    }
+    xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            x = this.responseText; 
-            document.getElementById("login2").innerHTML = x;
-           // $(".fa.fa-times-circle").css({ "display": "none" }); 
-                showMSG("Notice Reloded !",true);           
+            x = this.responseText;
+            document.getElementById("registration").innerHTML = x;
+            // $(".fa.fa-times-circle").css({ "display": "none" }); 
+            showMSG("Refreshed !", true);
         }
     };
-    xmlhttp.open("GET", "all_notice.php", true); 
-    xmlhttp.send(); 
-} 
+    xmlhttp.open("GET", "all_reg.php", true);
+    xmlhttp.send();
+}
 
-function showMSG(aaa,fff) {
 
-$("#information-panel").fadeOut(); 
-    if(fff==false){
+function loadList() {
+    checkSession();
+    var x;
+    //debugger; 
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            x = this.responseText;
+            document.getElementById("login2").innerHTML = x;
+            // $(".fa.fa-times-circle").css({ "display": "none" }); 
+            showMSG("Notice Reloded !", true);
+        }
+    };
+    xmlhttp.open("GET", "all_notice.php", true);
+    xmlhttp.send();
+}
+
+function showMSG(aaa, fff) {
+
+    $("#information-panel").fadeOut();
+    if (fff == false) {
         $(".fa.fa-times-rectangle").show();
         $(".fa.fa-check-square").hide();
         $("#text").css({ "color": "red" });
     }
-    else{
+    else {
         $(".fa.fa-times-rectangle").hide();
         $(".fa.fa-check-square").show();
-        $("#text").css({ "color": "green" }); 
+        $("#text").css({ "color": "green" });
     }
     $("#text").text(aaa);
-    $("#information-panel").fadeIn(1000); 
+    $("#information-panel").fadeIn(1000);
     setTimeout(msgingooff, 5000);
 }
 
 
-function homeGo(){
-    window.open("http://www.spycollege.org/","_BLANK");
+function homeGo() {
+    window.open("http://www.spycollege.org/", "_BLANK");
 }
-function addNotice(){
+function redirect(url) {
+    window.open(url);
+}
+function addNotice() {
     //debugger;
-    var msg=$("#message-box").val();
-    if(msg=="")
+    var msg = $("#message-box").val();
+    if (msg == "")
         return;
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -195,17 +220,17 @@ function addNotice(){
             debugger;
             x = this.responseText;
             if (x == " true ") {
-                showMSG("Add successful !", true); 
+                showMSG("Add successful !", true);
             }
             else {
-                showMSG("Ohh !! seems error Try again !", false); 
+                showMSG("Ohh !! seems error Try again !", false);
             }
         }
     };
-    xmlhttp.open("GET", "addnew.php?NOTICE="+msg, true);
+    xmlhttp.open("GET", "addnew.php?NOTICE=" + msg, true);
     xmlhttp.send();
 }
- 
+
 
 
 
@@ -251,7 +276,7 @@ function updateSelectNotice() {
     var tim = $("#time-list").val();
     var not = $("#message-box").val();
 
-    if (not.trim()=="") { 
+    if (not.trim() == "") {
         showMSG("Please enter notice !", false);
         return;
     }
@@ -302,10 +327,10 @@ function doWork() {
     if (work == "delete") {
         deleteSelectNotice();
     }
-    else if(work == "update"){
+    else if (work == "update") {
         updateSelectNotice();
     }
-    else if(work == "add"){
+    else if (work == "add") {
         addNotice();
-    } 
+    }
 }

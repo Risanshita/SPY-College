@@ -62,10 +62,19 @@ $studentName = $NOTICE = $_REQUEST["studentName"];
 $mobileNumber = $NOTICE = $_REQUEST["mobileNumber"];
 // adharNumber 
 $adharNumber = $NOTICE = $_REQUEST["adharNumber"];
+// fatherName 
+$fatherName = $NOTICE = $_REQUEST["fatherName"];
+// regSession 
+$regSession = $NOTICE = $_REQUEST["session"];
+// fullMarks 
+$fullMarks = $NOTICE = $_REQUEST["fullMarks"];
+// honorsPaper 
+$honorsPaper = '';// $NOTICE = $_REQUEST["honorsPaper"];
 
 $admitCard = uploadFile("admitCard", $adharNumber);
 $marksSheet = uploadFile("marksSheet", $adharNumber);
 $success = false;
+$redirect = 'add-online.php';
 if ($admitCard[0] == true && $marksSheet[0] == true) {
     $servername = "localhost";
     $username = "spycolle_root";
@@ -77,15 +86,34 @@ if ($admitCard[0] == true && $marksSheet[0] == true) {
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     } else {
-        $sql = "INSERT INTO  registration (class,studentName,mobileNumber,adharNumber,admitCard,marksSheet) VALUES('$className','$studentName','$mobileNumber','$adharNumber','$admitCard[1]','$marksSheet[1]')";
+        try { 
+            $sql = "DELETE FROM registration WHERE adharNumber='$adharNumber'";
+            mysqli_query($conn, $sql);
+        } catch(Exception $ex){
+
+        }
+        $sql = "INSERT INTO  registration (class,studentName,mobileNumber,adharNumber,admitCard,marksSheet,regSession,fullMarks,fatherName,honorsPaper) VALUES('$className','$studentName','$mobileNumber','$adharNumber','$admitCard[1]','$marksSheet[1]','$regSession','$fullMarks','$fatherName','$honorsPaper')";
 
         if (mysqli_query($conn, $sql)) {
             $success = true;
+            // $redirect = 'payment/index.php?class=' . $className . '&name=' . $studentName . '&mobileNumber=' . $mobileNumber .'&adharNumber=' .$adharNumber;
+            if($className == 'I.A.') {
+                $redirect = 'https://www.payumoney.com/paybypayumoney/#/3A6A30D81A38390632D450FDAAE3AD5E';
+            } else if($className == 'I.Sc.') {
+                $redirect = 'https://www.payumoney.com/paybypayumoney/#/FF22DF5950FB087E48903895885637DE';
+            } else if($className == 'I.Com.') { 
+                $redirect = 'https://www.payumoney.com/paybypayumoney/#/3A6A30D81A38390632D450FDAAE3AD5E';
+            } 
+            // else if($className == 'Graduation Part-1') { 
+            //     $redirect = 'https://pmny.in/UIpSAzu0gkM0';
+            // } else if($className == 'Graduation Part-2') { 
+            //     $redirect = 'https://pmny.in/mI6OxiQ63De7';
+            // } else if($className == 'Graduation Part-3') { 
+            //     $redirect = 'https://pmny.in/mI6OxiQ63De7';
+            // }
         }
         mysqli_close($conn);
         echo $res;
-        
-header('Location: add-online.php');
     }
 }
 $object = (object) [
@@ -94,3 +122,4 @@ $object = (object) [
     'marksSheet ' => $marksSheet,
 ];
 echo json_encode($object);
+header('Location: '.$redirect);

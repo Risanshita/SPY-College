@@ -37,10 +37,14 @@
             border-color: #00254e;
             color: #fff;
         }
-        table.add-form select, table.add-form input[type="text"], table.add-form input[type="number"] {
+
+        table.add-form select,
+        table.add-form input[type="text"],
+        table.add-form input[type="number"] {
             height: 25px;
             width: 350px;
         }
+
         table.add-form tr {
             height: 45px;
         }
@@ -48,8 +52,16 @@
     <!------------------------------slide pics------------thru java script----------------------------------->
 
 
-
-
+    <script>
+        function onchangeclass(event) {
+            var honorsPaper = document.getElementById("honorsPaper");
+            if (event.target.value == "Graduation Part-1" || event.target.value == "Graduation Part-2" || event.target.value == "Graduation Part-3") {
+                honorsPaper.style.display = "";
+            } else {
+                honorsPaper.style.display = "none";
+            }
+        }
+    </script>
 
     <!------------------endingg of slidepics----------------------------------------------------------------------->
 </head>
@@ -198,7 +210,7 @@
             $conn = mysqli_connect($servername, $username, $password, $dbname);
 
             ?>
-            <form action="submit-new-addmission.php" method="post" enctype="multipart/form-data">
+            <form action="submit-new-addmission.php" method="post" enctype="multipart/form-data"> 
                 <table class="add-form">
                     <tr class="header">
                         <td colspan="2" class="form-header">Online Addmission Form</td>
@@ -206,11 +218,36 @@
                     <tr>
                         <td class="first-col">Class</td>
                         <td>
-                            <select name="className" required>
+                            <select name="className" required id="className" onchange="onchangeclass(event)">
                                 <option value="" disabled selected>Choose a class</option>
-                                <option value="B.A Part-1">B.A Part-1</option>
-                                <option value="B.A Part-2">B.A Part-2</option>
-                                <option value="B.A Part-3">B.A Part-3</option>
+                                <option value="I.A.">I.A.</option>
+                                <option value="I.Sc.">I.Sc.</option>
+                                <option value="I.Com.">I.Com.</option>
+                                <!-- <option value="Graduation Part-1">Graduation Part-1</option>
+                                <option value="Graduation Part-2">Graduation Part-2</option>
+                                <option value="Graduation Part-3">Graduation Part-3</option> -->
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- <tr id="honorsPaper">
+                        <td class="first-col">Honors Paper</td>
+                        <td>
+                            <select name="honorsPaper">
+                                <option value="" selected>Select Honors Paper</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Math">Math</option>
+                                <option value="Physics">Physics</option>
+                            </select>
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td class="first-col">Session</td>
+                        <td>
+                            <select name="session" required>
+                                <option value="" disabled selected>Select Session</option>
+                                <option value="2019-20">2019-20</option>
+                                <option value="2020-21">2020-21</option>
+                                <option value="2020-22">2020-22</option>
                             </select>
                         </td>
                     </tr>
@@ -218,6 +255,18 @@
                         <td class="first-col">Student Name</td>
                         <td>
                             <input type="text" name="studentName" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">Father Name</td>
+                        <td>
+                            <input type="text" name="fatherName" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">Full Marks</td>
+                        <td>
+                            <input type="number" required name="fullMarks" maxlength="10" minlength="10" />
                         </td>
                     </tr>
                     <tr>
@@ -234,14 +283,14 @@
                     </tr>
 
                     <tr>
-                        <td class="first-col">Admin Card</td>
+                        <td class="first-col">OFFS Merit scan copy</td>
                         <td>
                             <input accept=".png,.jpeg,.jpg" type="file" required name="admitCard" />
                         </td>
                     </tr>
 
                     <tr>
-                        <td class="first-col">Marks Sheet</td>
+                        <td class="first-col">Previous Year Marks Sheet</td>
                         <td>
                             <input accept=".png,.jpeg,.jpg" type="file" required name="marksSheet" />
                         </td>
